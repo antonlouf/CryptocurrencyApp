@@ -10,14 +10,5 @@ data class Coin(
     val symbol: String
 )
 
-//mapping coin dto to kotlin object
-fun CoinDto.toCoin(): Coin {
-    return Coin(
-        id = id,
-        is_active = is_active,
-        name = name,
-        rank = rank,
-        symbol = symbol
-    )
-}
+
 
