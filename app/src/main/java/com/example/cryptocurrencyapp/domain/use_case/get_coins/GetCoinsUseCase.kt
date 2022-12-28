@@ -18,13 +18,13 @@ class GetCoinsUseCase @Inject constructor(
     //Use of flow to sequentially emit data upon success
     operator fun invoke(): Flow<Resource<List<Coin>>> = flow{
         try {
-            emit(Resource.Loading()) //display progress bar
+            emit(Resource.Loading<List<Coin>>()) //display progress bar
             val coins = repository.getCoins().map { it.toCoin() }
-            emit(Resource.Success(coins)) //When Successful forward coins to viewmodel
+            emit(Resource.Success<List<Coin>>(coins)) //When Successful forward coins to viewmodel
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occured"))
+            emit(Resource.Error<List<Coin>>(e.localizedMessage ?: "An unexpected error occured"))
         } catch (e: IOException) {
-            emit(Resource.Error("Couldn't reach server"))
+            emit(Resource.Error<List<Coin>>("Couldn't reach server"))
         }
     }
 }
