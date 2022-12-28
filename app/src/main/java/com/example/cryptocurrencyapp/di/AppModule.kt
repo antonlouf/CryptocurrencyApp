@@ -1,6 +1,6 @@
 package com.example.cryptocurrencyapp.di
 
-import com.example.cryptocurrencyapp.common.Constrans
+import com.example.cryptocurrencyapp.common.Constants
 import com.example.cryptocurrencyapp.data.remote.CoinPaprikaApi
 import com.example.cryptocurrencyapp.data.repository.CoinRepositoryImpl
 import com.example.cryptocurrencyapp.domain.repository.CoinRepository
@@ -24,7 +24,7 @@ object AppModule {
     @Singleton //only one instance of return possible
     fun providePaprikaApi(): CoinPaprikaApi{
         return Retrofit.Builder()
-            .baseUrl(Constrans.BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()) //Serialize json data
             .build()
             .create(CoinPaprikaApi::class.java) // create API interface
