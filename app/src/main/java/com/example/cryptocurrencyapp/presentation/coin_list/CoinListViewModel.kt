@@ -14,31 +14,31 @@ import javax.inject.Inject
 @HiltViewModel
 class CoinListViewModel @Inject constructor(
     private val getCoinsUseCase: GetCoinsUseCase
-): ViewModel(){
-
-    //Execute
-    init {
-        getCoins()
-    }
+) : ViewModel() {
 
     //Outside protection
     private val _state = mutableStateOf(CoinListState())
     val state: State<CoinListState> = _state
 
-    //Returns state on each resource value of flow of GetCoinsUseCase class
+    init {
+        getCoins()
+    }
+
     private fun getCoins() {
         getCoinsUseCase().onEach { result ->
-            when (result){
+            when (result) {
                 is Resource.Success -> {
                     _state.value = CoinListState(coins = result.data ?: emptyList())
                 }
                 is Resource.Error -> {
-                    _state.value = CoinListState(error = result.message ?: "An unexpected error occured")
+                    _state.value = CoinListState(
+                        error = result.message ?: "An unexpected error occured"
+                    )
                 }
                 is Resource.Loading -> {
                     _state.value = CoinListState(isLoading = true)
                 }
             }
-        }.launchIn(viewModelScope) //flows are async -> hence why launchIn
+        }.launchIn(viewModelScope)
     }
 }

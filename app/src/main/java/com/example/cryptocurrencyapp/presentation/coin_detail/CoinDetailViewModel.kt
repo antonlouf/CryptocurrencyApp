@@ -19,16 +19,17 @@ class CoinDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle //bundle of resource including navigation parameters
 ): ViewModel(){
 
+
+    //Outside protection
+    private val _state = mutableStateOf(CoinDetailState())
+    val state: State<CoinDetailState> = _state
+
     //Execute
     init {
         savedStateHandle.get<String>(Constants.PARAM_COIN_ID)?.let { coinId ->
             getCoin(coinId)
         }
     }
-
-    //Outside protection
-    private val _state = mutableStateOf(CoinDetailState())
-    val state: State<CoinDetailState> = _state
 
     //Returns state on each resource value of flow of GetCoinsUseCase class
     private fun getCoin(coinId: String) {
