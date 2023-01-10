@@ -16,11 +16,22 @@ class GetCoinsUseCase @Inject constructor(
 ) {
     //Overide operator invoke to call class as if it was a function
     //Use of flow to sequentially emit data upon success
+
+    //Make db instance
+
+
     operator fun invoke(): Flow<Resource<List<Coin>>> = flow{
         try {
-            emit(Resource.Loading<List<Coin>>()) //display progress bar
+            emit(Resource.Loading<List<Coin>>()) //#1 (progress bar)
+
+            //When Crypto db met table coins is not null -> Neem lijst van db
+
+
+            //else -> haal op van api
             val coins = repository.getCoins().map { it.toCoin() } //map every item to coin model object
+
             emit(Resource.Success<List<Coin>>(coins)) //When Successful forward coins to viewmodel
+
         } catch (e: HttpException) {
             emit(Resource.Error<List<Coin>>(e.localizedMessage ?: "An unexpected error occured"))
         } catch (e: IOException) {

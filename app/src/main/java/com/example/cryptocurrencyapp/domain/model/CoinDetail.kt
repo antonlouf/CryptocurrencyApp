@@ -2,6 +2,7 @@ package com.example.cryptocurrencyapp.domain.model
 
 import com.example.cryptocurrencyapp.data.remote.dto.TeamMember
 
+
 data class CoinDetail(
     val coinId: String,
     val name: String,

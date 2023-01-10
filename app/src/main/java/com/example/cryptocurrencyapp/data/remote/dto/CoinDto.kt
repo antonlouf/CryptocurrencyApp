@@ -1,5 +1,6 @@
 package com.example.cryptocurrencyapp.data.remote.dto
 
+import androidx.room.Entity
 import com.example.cryptocurrencyapp.domain.model.Coin
 
 data class CoinDto(
@@ -15,6 +16,7 @@ data class CoinDto(
 //mapping coin dto to kotlin object
 fun CoinDto.toCoin(): Coin {
     return Coin(
+        CId = rank, //LOS OP! FOUT
         id = id,
         is_active = is_active,
         name = name,
