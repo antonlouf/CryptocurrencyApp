@@ -1,5 +1,6 @@
 package com.example.cryptocurrencyapp.domain.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,7 +9,8 @@ import androidx.room.PrimaryKey
 )
 data class Coin(
     @PrimaryKey(autoGenerate = true)
-    val CId: Int,
+    @ColumnInfo(name = "cId", defaultValue = "0")
+    val cId: Int,
     val id: String,
     val is_active: Boolean,
     val name: String,

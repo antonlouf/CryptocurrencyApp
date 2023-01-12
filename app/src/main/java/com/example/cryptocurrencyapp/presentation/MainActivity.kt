@@ -1,5 +1,6 @@
 package com.example.cryptocurrencyapp.presentation
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +19,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.cryptocurrencyapp.data.db.CryptoDao
+import com.example.cryptocurrencyapp.data.db.CryptoDatabase
+import com.example.cryptocurrencyapp.di.AppModule
 import com.example.cryptocurrencyapp.presentation.navItems.BottomNavItem
 import com.example.cryptocurrencyapp.presentation.coin_detail.CoinDetailScreen
 import com.example.cryptocurrencyapp.presentation.coin_list.CoinListScreen
@@ -37,6 +41,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     val navController = rememberNavController()
+
                     Scaffold(bottomBar = {
                         BottomNavigationBar(
                             items = listOf(
