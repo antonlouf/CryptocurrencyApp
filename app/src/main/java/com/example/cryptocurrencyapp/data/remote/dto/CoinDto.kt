@@ -14,9 +14,9 @@ data class CoinDto(
 )
 
 //mapping coin dto to kotlin object
-fun CoinDto.toCoin(): Coin {
+fun CoinDto.toCoin(cId: Int): Coin {
     return Coin(
-        cId = (0..100).random(), //temporary fix
+        cId = cId, //temporary fix
         id = id,
         is_active = is_active,
         name = name,

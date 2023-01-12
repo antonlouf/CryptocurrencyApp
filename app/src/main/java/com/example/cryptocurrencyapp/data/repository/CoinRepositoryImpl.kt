@@ -36,14 +36,14 @@ class CoinRepositoryImpl @Inject constructor(
             coins = getCoinsByApi()
         }
 
-        //coroutine?
         ioScope.launch { coins.forEach { dao.insert(it) } }
 
         return coins
     }
 
     override suspend fun getCoinsByApi(): List<Coin> {
-        coins = api.getCoins().map { it.toCoin() }
+        var i: Int = 0
+        coins = api.getCoins().map { it.toCoin(i++) }
         return coins
     }
 
