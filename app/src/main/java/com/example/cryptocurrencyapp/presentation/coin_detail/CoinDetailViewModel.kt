@@ -19,7 +19,6 @@ class CoinDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle //bundle of resource including navigation parameters
 ): ViewModel(){
 
-
     //Outside protection
     private val _state = mutableStateOf(CoinDetailState())
     val state: State<CoinDetailState> = _state

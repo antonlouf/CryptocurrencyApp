@@ -1,6 +1,5 @@
 package com.example.cryptocurrencyapp.data.repository
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
@@ -9,7 +8,6 @@ import com.example.cryptocurrencyapp.data.db.CryptoDao
 import com.example.cryptocurrencyapp.data.db.CryptoDatabase
 import com.example.cryptocurrencyapp.domain.model.Coin
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.CoreMatchers
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -43,6 +41,6 @@ class CoinRepositoryImplTest  {
     fun insertTest() = runBlocking{
         dao.insert(coin1)
         val coinById = dao.findCoinByCId(1)
-        assertEquals(coinById, coin2)
+        assertEquals(coinById, coin1)
     }
 }

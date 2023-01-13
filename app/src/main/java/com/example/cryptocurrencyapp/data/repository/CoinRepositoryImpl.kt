@@ -23,10 +23,6 @@ class CoinRepositoryImpl @Inject constructor(
     val ioScope = CoroutineScope(Dispatchers.IO)
     var coins: List<Coin> = emptyList()
 
-    //find out if database is full?
-    //then decide on what on to import from api
-    //or to take from database
-
     override suspend fun getCoins(): List<Coin> {
         ioScope.launch {
             coins = dao.getAllCoins()
@@ -36,13 +32,15 @@ class CoinRepositoryImpl @Inject constructor(
             coins = getCoinsByApi()
         }
 
-        ioScope.launch { coins.forEach { dao.insert(it) } }
+        ioScope.launch {
+            coins.forEach { dao.insert(it) }
+        }
 
         return coins
     }
 
     override suspend fun getCoinsByApi(): List<Coin> {
-        var i: Int = 0
+        var i = 0
         coins = api.getCoins().map { it.toCoin(i++) }
         return coins
     }

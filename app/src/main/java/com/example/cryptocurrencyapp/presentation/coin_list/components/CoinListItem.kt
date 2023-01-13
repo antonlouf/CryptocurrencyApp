@@ -26,7 +26,6 @@ fun CoinListItem(
     onItemClick: (Coin) -> Unit
 ) {
 
-
     Row(
         modifier = Modifier
             .fillMaxWidth()

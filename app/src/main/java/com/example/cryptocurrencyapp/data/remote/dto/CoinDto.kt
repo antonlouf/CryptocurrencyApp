@@ -16,7 +16,7 @@ data class CoinDto(
 //mapping coin dto to kotlin object
 fun CoinDto.toCoin(cId: Int): Coin {
     return Coin(
-        cId = cId, //temporary fix
+        cId = cId,
         id = id,
         is_active = is_active,
         name = name,
