@@ -3,6 +3,7 @@
 ## This is an cryptocurrency application structured with a mvvm (Model View Viewmodel) project hierachy.
 ###### The coins/ tokens are provided by the CoinPaprika API. 
 
+To start this application it is recommended to add javax.inject-1.jar (download: http://www.java2s.com/Code/Jar/j/Downloadjavaxinjectjar.html) file loacted in the a lib folder and add it to the project dependecies. 
 
 Used Resources: 
 - API: https://api.coinpaprika.com
