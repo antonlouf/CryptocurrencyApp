@@ -4,7 +4,7 @@
 ###### The coins/ tokens are provided by the CoinPaprika API. 
 
 
-Used Sources: 
+Used Resources: 
 - API: https://api.coinpaprika.com
 * Docs: https://developer.android.com/jetpack/compose/documentation and https://kotlinlang.org/
 + Tutorial: https://www.youtube.com/watch?v=EF33KmyprEQ 
