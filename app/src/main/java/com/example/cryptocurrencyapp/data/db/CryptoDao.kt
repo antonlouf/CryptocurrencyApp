@@ -14,7 +14,10 @@ interface CryptoDao {
     suspend fun insert(coin: Coin): Long
 
     @Query("SELECT * FROM coins")
-    fun getAllCoins(): List<Coin> // Livedata or stateflow
+    fun getAllCoins(): List<Coin>
+
+    @Query("SELECT * FROM coins WHERE cId = :cId")
+    fun findCoinByCId(cId:Int): Coin
 
     @Query("DELETE FROM COINS")
     suspend fun deleteAllCoins()

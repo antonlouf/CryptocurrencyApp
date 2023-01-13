@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="teammembers">Team Leden</string>
+    <string name="active">Actief</string>
+    <string name="inactive">Inactief</string>
+</resources>

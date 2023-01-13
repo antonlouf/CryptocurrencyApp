@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.cryptocurrencyapp.presentation.coin_detail.components.CoinTag
 import com.example.cryptocurrencyapp.presentation.coin_detail.components.TeamListItem
+import com.example.cryptocurrencyapp.R
 import com.google.accompanist.flowlayout.FlowRow
 
 
@@ -44,7 +46,9 @@ fun CoinDetailScreen(
                             modifier = Modifier.weight(8f)
                         )
                         Text(
-                            text = if (coin.isActive) "active" else "inactive",
+                            text = if (coin.isActive) stringResource(id = R.string.active) else stringResource(
+                                id = R.string.inactive
+                            ),
                             color = if (coin.isActive) Color.Green else Color.Red,
                             fontStyle = FontStyle.Italic,
                             textAlign = TextAlign.End,
@@ -70,7 +74,7 @@ fun CoinDetailScreen(
                     }
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(
-                        text = "Team members",
+                        text = stringResource(id = R.string.teammembers),
                         style = MaterialTheme.typography.h3
                     )
                     Spacer(modifier = Modifier.height(15.dp))
