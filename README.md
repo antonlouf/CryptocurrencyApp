@@ -1,4 +1,4 @@
-# CryptocurrencyApp build on Jetpack Compose 
+# Cryptocurrency Application build on Jetpack Compose 
 
 ## This is an cryptocurrency application structured with a mvvm (Model View Viewmodel) project hierachy.
 ###### The coins/ tokens are provided by the CoinPaprika API. 
